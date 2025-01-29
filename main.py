@@ -13,8 +13,8 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
-center_list = "./config/center_list.json"
-config_list = "./config/bot_config.json"
+center_list = "./configs/center_list.json"
+config_list = "./configs/bot_config.json"
 
 app = Flask(__name__)
 
