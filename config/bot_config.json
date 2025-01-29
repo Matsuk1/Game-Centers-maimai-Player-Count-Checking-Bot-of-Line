@@ -1,0 +1,7 @@
+{
+    "line_config" : {
+        "channel_token" : "",
+        "channel_secret" : ""
+    },
+    "bind_port" : 1222
+}
