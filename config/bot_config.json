@@ -1,4 +1,8 @@
 {
+    "admins" : [
+        "admin_1",
+        "admin_2"
+    ],
     "line_config" : {
         "channel_token" : "LINE_CHANNEL_ACCESS_TOKEN",
         "channel_secret" : "LINE_CHANNEL_SECRET"
