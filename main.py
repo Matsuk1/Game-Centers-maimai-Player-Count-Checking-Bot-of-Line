@@ -13,6 +13,8 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
+admin_list = []
+
 center_list = "./config/center_list.json"
 config_list = "./config/bot_config.json"
 
@@ -173,10 +175,11 @@ def clear_center():
         value['last_time'] = 0
         value['num'] = 0
         value['people'] = ""
-        with open(center_list, "w", encoding="utf-8") as file:
-            json.dump(center, file, ensure_ascii=False, indent=4)
-        file.close();
-        result = "完成しました！"
+
+    with open(center_list, "w", encoding="utf-8") as file:
+        json.dump(center, file, ensure_ascii=False, indent=4)
+    file.close();
+    result = "クリア完了！"
 
     return result
 
@@ -207,7 +210,7 @@ def handle_message(event):
         reply_message = get_people(user_message.strip()[:-1])
         need_reply = True
 
-    elif user_message.strip() == "confirm clearing" :
+    elif user_message.strip() == "clear" and user_id in admin_list:
         reply_message = clear_center()
         need_reply = True
 
