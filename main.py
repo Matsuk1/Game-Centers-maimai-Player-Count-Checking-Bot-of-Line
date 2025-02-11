@@ -13,8 +13,6 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
-admin_list = []
-
 center_list = "./config/center_list.json"
 config_list = "./config/bot_config.json"
 
@@ -24,6 +22,7 @@ with open(config_list, 'r', encoding='utf-8') as config_file:
     bot_config = json.load(config_file)
 config_file.close()
 
+admin_list = bot_config['admins']
 LINE_CHANNEL_ACCESS_TOKEN = bot_config['line_config']['channel_token']
 LINE_CHANNEL_SECRET = bot_config['lind_config']['channel_secret']
 bind_port = bot_config['bind_port']
